@@ -7,10 +7,12 @@ async def main():
     from data.config import config
 
     from handlers import yt_video_link_router
+    from handlers import yt_video_name_router
 
     bot = Bot(token=config.tg_bot.get_token, parse_mode="HTML")
     dp = Dispatcher()
     dp.include_router(yt_video_link_router)
+    dp.include_router(yt_video_name_router)
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s: %(message)s',
                         datefmt='%d.%m.%Y %H:%M:%S')
