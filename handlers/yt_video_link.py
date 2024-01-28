@@ -31,7 +31,7 @@ async def download_video(call: types.CallbackQuery, state: FSMContext):
 
     await call.message.delete()
 
-    video = yt.download_video()
+    video = await yt.download_video()
 
     # TODO If the size exceeds 50 MB, upload to the cloud
     if video:
@@ -56,7 +56,7 @@ async def download_audio(call: types.CallbackQuery, state: FSMContext):
 
     await call.message.delete()
 
-    audio = yt.download_audio()
+    audio = await yt.download_audio()
 
     # TODO If the size exceeds 50 MB, upload to the cloud
     if audio:
